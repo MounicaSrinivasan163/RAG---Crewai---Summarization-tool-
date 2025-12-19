@@ -1,4 +1,4 @@
-# 📘 Book Search, Summarization & Evaluation (RAG System)
+# 📘RAG - DOC Search, Summarization & Evaluation Tool (RAG System)
 
 ## 🧩 Problem Definition
 
