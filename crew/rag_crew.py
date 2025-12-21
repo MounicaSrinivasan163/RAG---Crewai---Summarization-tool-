@@ -1,5 +1,5 @@
 # crew/rag_crew.py
-from langchain.chat_models import ChatOpenAI
+from langchain_openai import ChatOpenAI
 
 # LLM
 llm = ChatOpenAI(
