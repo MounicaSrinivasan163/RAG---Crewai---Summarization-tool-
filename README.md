@@ -1,6 +1,6 @@
 # 📘 RAG-based Document Search, Summarization & Evaluation System
 ---
-Streamlit APP link: https://rag-llm-pinecone-summarization-tool.streamlit.app/
+Streamlit APP link: https://rag-pinecone-doc-index-summarization-tool.streamlit.app/
 
 ---
 
