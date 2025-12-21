@@ -1,8 +1,8 @@
 # 📘 RAG-based Document Search, Summarization & Evaluation System
 ---
 Streamlit APP link:
-
 ---
+
 A **production-style Retrieval-Augmented Generation (RAG) application** built with **Streamlit**, **Pinecone**, **LangChain**, and **OpenAI**, designed to ingest documents, perform **hybrid retrieval**, generate **ChatGPT-like answers**, and support both **automatic and human evaluation**.
 
 This system supports **multi-topic content ingestion** and is not limited to a single domain.
@@ -25,7 +25,7 @@ This system supports **multi-topic content ingestion** and is not limited to a s
 ---
 
 ## 🧠 Architecture Overview
-
+```
 User Query  
 ↓  
 Hybrid Retrieval (Vector Similarity + Keyword Matching)  
@@ -35,6 +35,7 @@ Context Assembly
 LLM Answer Generation (ChatGPT-style)  
 ↓  
 Evaluation (ROUGE + Human Review)
+```
 
 ---
 
