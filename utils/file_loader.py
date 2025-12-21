@@ -1,4 +1,4 @@
-from PyPDF2 import PdfReader
+from pypdf import PdfReader
 from io import BytesIO
 import streamlit as st
 import pandas as pd
@@ -40,3 +40,4 @@ def load_file(uploaded_file, chunk_size=300, overlap=50):
 
     progress_bar.empty()
     return chunks
+
