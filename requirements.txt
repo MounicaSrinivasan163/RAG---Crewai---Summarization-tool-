@@ -1,25 +1,35 @@
-streamlit==1.32.2
-python-dotenv==1.0.1
+# ===============================
+# Core App & UI
+# ===============================
+streamlit>=1.32.0
+python-dotenv>=1.0.1
 
-# Pinecone
-pinecone-client==3.0.2
+# ===============================
+# LLM / Prompting
+# ===============================
+langchain>=0.2.6
+langchain-community>=0.2.6
+openai>=1.30.0
 
-# Embeddings (Pinecone Inference / LLaMA)
-numpy==1.26.4
+# ===============================
+# Vector DB & Embeddings
+# ===============================
+pinecone-client>=4.1.0
 
-# PDF / DOCX / CSV loaders
-PyPDF2==3.0.1
-python-docx==1.1.0
-pandas==2.2.2
+# ===============================
+# Document Processing
+# ===============================
+pypdf>=4.2.0
+python-docx>=1.1.0
+pandas>=2.2.0
 
-# Text processing
-tiktoken==0.7.0
-
+# ===============================
 # Evaluation
-rouge-score==0.1.2
-nltk==3.8.1
+# ===============================
+rouge-score>=0.1.2
+nltk>=3.8.1
 
-# CrewAI / LLM orchestration
-crewai==0.30.11
-langchain==0.1.20
-langchain-community==0.0.38
+# ===============================
+# Utilities
+# ===============================
+tqdm>=4.66.0
