@@ -155,7 +155,6 @@ RAG/
 - Internal knowledge base Q&A
 - Learning assistant across mixed topics
 - RAG system prototyping
-- Interview-ready GenAI project
 - Evaluation framework experimentation
 
 ---
