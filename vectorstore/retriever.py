@@ -73,5 +73,6 @@ def retrieve_chunks(
     ]
     
     return reranked_chunks
-     reranked_chunks
+
+
 
