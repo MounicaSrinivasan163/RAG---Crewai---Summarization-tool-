@@ -66,10 +66,12 @@ def retrieve_chunks(
         documents=candidates,
         top_n=rerank_top_k
     )
-
+    
     reranked_chunks = [
-        r["document"]["text"]
-        for r in rerank_response["results"]
+        r.document["text"]
+        for r in rerank_response.results
     ]
-
+    
     return reranked_chunks
+     reranked_chunks
+
