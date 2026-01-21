@@ -12,21 +12,22 @@ llm = ChatOpenAI(
 def detect_intent(query: str):
     q = query.lower()
     if any(w in q for w in ["disadvantage", "drawback", "limitation", "negative"]):
-        return "List ONLY the disadvantages or negative aspects explicitly mentioned."
+        return "List the disadvantages or negative aspects."
     if any(w in q for w in ["advantage", "benefit", "merit"]):
-        return "List ONLY the advantages or benefits explicitly mentioned."
+        return "List the advantages or benefits."
     if any(w in q for w in ["steps", "process", "how to"]):
-        return "Explain ONLY the steps explicitly described."
+        return "Explain the steps."
     if any(w in q for w in ["difference", "compare"]):
-        return "Compare ONLY what is explicitly stated."
-    return "Answer ONLY what is explicitly stated."
+        return "Provide a comparison."
+    return "Answer the question directly."
 
 
 def summarize_chunks_task(context):
     """
     Strict RAG Answering:
     - Uses ONLY retrieved document content
-    - Refuses if answer is not present in context
+    - No external knowledge
+    - No meta or disclaimer sentences
     """
 
     chunks = context.get("retrieved_chunks", [])
@@ -56,14 +57,13 @@ def summarize_chunks_task(context):
         }
 
     context_text = "\n\n".join(clean_context)
-
     intent_instruction = detect_intent(query)
 
-    # ----------------  PROMPT ----------------
-prompt = f"""
+    # ---------------- PROMPT ----------------
+    prompt = f"""
 You are a document-grounded AI assistant.
 
-CRITICAL RULES (must follow):
+CRITICAL RULES:
 - Answer using ONLY the information present in the Context.
 - Do NOT use external knowledge or assumptions.
 - Do NOT mention the context, documents, or what is missing.
@@ -90,17 +90,16 @@ Answer Style Rules:
 - Do NOT add concluding or meta statements
 - Be concise and factual
 - Use bullet points or short paragraphs if helpful
-- Max length: {summary_length} words
+- Maximum length: {summary_length} words
 
 Final Answer:
 """
- 
 
     try:
         response = llm.invoke(prompt)
         summary = response.content.strip()
 
-        # 🔒 Final safety net (post-check)
+        # 🔒 Final safety net
         if not summary or "no relevant information" in summary.lower():
             return {
                 "summary": "No relevant information found in the provided documents."
